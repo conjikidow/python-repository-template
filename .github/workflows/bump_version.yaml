@@ -101,4 +101,6 @@ jobs:
             This PR updates the version from `${{ steps.bump.outputs.previous-version }}` to `${{ steps.bump.outputs.current-version }}`.
 
             Bump Type: `${{ steps.bump-type.outputs.type }}`
-          labels: automated
+          labels: |
+            automated
+            versioning
