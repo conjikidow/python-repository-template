@@ -16,7 +16,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout the main repository
         uses: actions/checkout@v4.2.2
 
       - name: Get labels
