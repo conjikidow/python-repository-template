@@ -8,7 +8,7 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "bump-my-version==0.32.0",
+    "bump-my-version==0.32.1",
     "ruff==0.9.5",
 ]
 
