@@ -8,9 +8,11 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "bump-my-version==0.32.1",
-    "ruff==0.9.6",
+    { include-group = "lint" },
+    { include-group = "versioning" },
 ]
+lint = [ "ruff==0.9.6" ]
+versioning = [ "bump-my-version==0.32.1" ]
 
 [tool.ruff]
 target-version = "py313"
