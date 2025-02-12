@@ -80,7 +80,7 @@ jobs:
 
       - name: Set up ruff using uv
         run: |
-          uv sync
+          uv sync --only-group lint
 
       - name: Check tools version
         run: |

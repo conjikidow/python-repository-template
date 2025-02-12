@@ -46,10 +46,10 @@ jobs:
         if: steps.bump-type.outputs.type != 'none'
         uses: astral-sh/setup-uv@v5.2.2
 
-      - name: Set up Python environment using uv
+      - name: Set up bump-my-version using uv
         if: steps.bump-type.outputs.type != 'none'
         run: |
-          uv sync
+          uv sync --only-group versioning
 
       - name: Check tools version
         if: steps.bump-type.outputs.type != 'none'
