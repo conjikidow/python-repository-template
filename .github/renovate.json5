@@ -6,6 +6,9 @@
   "git-submodules": {
     enabled: true,
   },
+  lockFileMaintenance: {
+    enabled: true,
+  },
   labels: [
     "automated",
     "dependencies",
