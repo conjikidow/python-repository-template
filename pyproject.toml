@@ -10,7 +10,7 @@ dependencies = []
 dev = [
     { include-group = "lint" },
 ]
-lint = [ "ruff==0.11.4" ]
+lint = [ "ruff==0.11.5" ]
 
 [tool.ruff]
 target-version = "py313"
