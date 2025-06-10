@@ -47,3 +47,11 @@ Replace `project-name` with your project name in the following files:
   replace = 'name = "project-name"\nversion = "{new_version}"'     # Replace with your project name
   regex = true
   ```
+
+## Pre-commit Hooks Setup
+
+To enable pre-commit hooks in your repository, you need to install `pre-commit` by running the following command:
+
+```console
+uv run pre-commit install
+```
