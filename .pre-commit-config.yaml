@@ -3,7 +3,7 @@ repos:
     rev: v0.11.13
     hooks:
       - id: ruff-check
-        args: [ --fix ]
+        args: ["--fix"]
       - id: ruff-format
 
   - repo: https://github.com/crate-ci/typos
@@ -22,13 +22,13 @@ repos:
       - id: trailing-whitespace
         args: ["--markdown-linebreak-ext=md"]
       - id: pretty-format-json
-        args: [--autofix, --no-sort-keys]
+        args: ["--autofix", "--no-sort-keys"]
       - id: requirements-txt-fixer
       - id: check-ast
       - id: check-builtin-literals
       - id: debug-statements
       - id: name-tests-test
-        args: [--pytest-test-first]
+        args: ["--pytest-test-first"]
       - id: check-json
       - id: check-yaml
       - id: check-toml
