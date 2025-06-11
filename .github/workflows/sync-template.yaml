@@ -22,4 +22,5 @@ jobs:
         with:
           source_repo_path: conjikidow/python-repository-template
           upstream_branch: main
+          pr_branch_name_prefix: 'workflow/sync-template'
           pr_labels: 'automated,template-sync'
