@@ -1,0 +1,6 @@
+README.md
+.bumpversion.toml
+.typos.toml
+.github/CODEOWNERS
+.python-version
+uv.lock
