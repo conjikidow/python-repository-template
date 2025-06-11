@@ -53,5 +53,5 @@ Replace `project-name` with your project name in the following files:
 To enable pre-commit hooks in your repository, you need to install `pre-commit` by running the following command:
 
 ```console
-uv run pre-commit install
+uv run --frozen pre-commit install
 ```
