@@ -18,7 +18,7 @@ Follow these steps to configure the permissions:
    - **`Allow GitHub Actions to create and approve pull requests`**: This allows GitHub Actions to create pull requests.
 4. Save the changes.
 
-![image](https://github.com/user-attachments/assets/da55e896-e087-486e-aadc-7fc1283dc652)
+![GitHub Actions permissions setup screenshot](https://github.com/user-attachments/assets/da55e896-e087-486e-aadc-7fc1283dc652)
 
 These settings are **necessary only for private repositories**. For public repositories, this configuration is not required.
 
