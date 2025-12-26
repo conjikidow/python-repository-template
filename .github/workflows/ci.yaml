@@ -20,6 +20,7 @@ jobs:
       doc: ${{ steps.changed-files.outputs.doc_any_changed }}
       test: ${{ steps.changed-files.outputs.test_any_changed }}
       workflow: ${{ steps.changed-files.outputs.workflow_any_changed }}
+      workflow_ci: ${{ steps.changed-files.outputs.workflow_ci_any_changed }}
       python: ${{ steps.changed-files.outputs.python_any_changed }}
 
     steps:
@@ -44,6 +45,8 @@ jobs:
               - '!**/tests/**/*.md'
             workflow:
               - .github/workflows/**
+            workflow_ci:
+              - .github/workflows/ci.yaml
             python:
               - '**/**.py'
               - 'pyproject.toml'
@@ -72,7 +75,7 @@ jobs:
   lint-python:
     name: Lint Python
     needs: determine-changes
-    if: ${{ needs.determine-changes.outputs.python == 'true' }}
+    if: ${{ needs.determine-changes.outputs.python == 'true' || needs.determine-changes.outputs.workflow_ci == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
