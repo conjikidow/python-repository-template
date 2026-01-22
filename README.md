@@ -50,9 +50,19 @@ Replace `project-name` with your project name in the following files:
 
 ## Pre-commit Hooks Setup
 
-To enable pre-commit hooks in your repository, you need to install `pre-commit` by running the following command:
+This template recommends using [`prek`](https://prek.j178.dev) (a faster, drop-in alternative to [`pre-commit`](https://pre-commit.com)).
+
+Install the hooks by running:
 
 ```console
+uv run --frozen prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+```
+
+If you prefer `pre-commit`, update your dev dependency and install hooks:
+
+```console
+uv remove prek --dev
+uv add pre-commit --dev
 uv run --frozen pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
