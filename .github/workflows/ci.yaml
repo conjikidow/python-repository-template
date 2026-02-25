@@ -111,6 +111,10 @@ jobs:
     needs: determine-changes
     if: ${{ needs.determine-changes.outputs.python == 'true' || needs.determine-changes.outputs.workflow_ci == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
 
     steps:
       - name: Checkout the main repository
@@ -131,8 +135,45 @@ jobs:
           uv run ruff --version
 
       - name: Lint with Ruff
+        if: github.event_name != 'pull_request'
         run: |
           uv run ruff check . --output-format=github
+
+      - name: Set up reviewdog
+        uses: reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f # v1.5.0
+        if: github.event_name == 'pull_request'
+
+      - name: Lint with Ruff (reviewdog)
+        if: github.event_name == 'pull_request'
+        run: |
+          uv run ruff check . --output-format=json > /tmp/ruff-report.json || true
+          jq -c '
+            .[] |
+            {
+              source: {name: "ruff"},
+              severity: "ERROR",
+              message: (.message + " (" + .code + ")"),
+              location: {
+                path: .filename,
+                range: {
+                  start: {line: .location.row, column: .location.column},
+                  end: {
+                    line: (.end_location.row // .location.row),
+                    column: (.end_location.column // .location.column)
+                  }
+                }
+              }
+            }
+          ' /tmp/ruff-report.json |
+            reviewdog \
+              -f=rdjsonl \
+              -name=ruff \
+              -reporter=github-pr-review \
+              -filter-mode=added \
+              -fail-level=error \
+              -tee
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check-typos:
     name: Check typos
