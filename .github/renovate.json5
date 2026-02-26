@@ -4,42 +4,6 @@
     'config:recommended',
     'helpers:pinGitHubActionDigests',
   ],
-  packageRules: [
-    {
-      matchFileNames: [
-        '.github/workflows/**',
-      ],
-      addLabels: [
-        'ci',
-      ],
-    },
-    {
-      matchManagers: [
-        'pre-commit',
-      ],
-      addLabels: [
-        'pre-commit',
-      ],
-    },
-    {
-      matchFileNames: [
-        '.github/workflows/**',
-      ],
-      matchUpdateTypes: [
-        'patch',
-      ],
-      automerge: true,
-    },
-    {
-      matchManagers: [
-        'pre-commit',
-      ],
-      matchUpdateTypes: [
-        'patch',
-      ],
-      automerge: true,
-    },
-  ],
   customManagers: [
     {
       customType: 'regex',
@@ -130,6 +94,42 @@
       depNameTemplate: 'taplo-cli',
     },
   ],
+  packageRules: [
+    {
+      matchFileNames: [
+        '.github/workflows/**',
+      ],
+      addLabels: [
+        'ci',
+      ],
+    },
+    {
+      matchManagers: [
+        'pre-commit',
+      ],
+      addLabels: [
+        'pre-commit',
+      ],
+    },
+    {
+      matchFileNames: [
+        '.github/workflows/**',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      automerge: true,
+    },
+    {
+      matchManagers: [
+        'pre-commit',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      automerge: true,
+    },
+  ],
   'git-submodules': {
     enabled: true,
   },
@@ -138,6 +138,7 @@
   },
   lockFileMaintenance: {
     enabled: true,
+    automerge: true,
   },
   labels: [
     'automated',
