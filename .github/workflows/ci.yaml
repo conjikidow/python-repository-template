@@ -249,8 +249,7 @@ jobs:
               }
             }
           ' /tmp/ruff-report.json > /tmp/ruff-rdjsonl.txt || true
-          cat /tmp/ruff-rdjsonl.txt |
-            reviewdog \
+          reviewdog < /tmp/ruff-rdjsonl.txt \
               -f=rdjsonl \
               -name=ruff \
               -reporter=github-pr-review \
