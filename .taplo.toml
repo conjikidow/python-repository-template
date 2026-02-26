@@ -4,3 +4,9 @@ include = ["**/*.toml"]
 array_auto_collapse = false
 column_width = 120
 indent_string = "    "
+
+[[rule]]
+include = ["pyproject.toml"]
+
+[rule.formatting]
+compact_arrays = false
