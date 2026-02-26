@@ -8,7 +8,9 @@ This is a template repository for Python projects.
 
 ## GitHub Actions Permissions Setup
 
-To enable GitHub Actions to run properly in your repository, you need to adjust the default permissions granted to the `GITHUB_TOKEN`. This is especially important for **private repositories**.
+To enable GitHub Actions to run properly in your repository, you need to adjust the default permissions granted
+to the `GITHUB_TOKEN`.
+This is especially important for **private repositories**.
 
 Follow these steps to configure the permissions:
 
@@ -69,9 +71,11 @@ uv run --frozen pre-commit install --hook-type pre-commit --hook-type commit-msg
 
 ## Commit Message Linting with Commitizen
 
-This template repository enforces [Conventional Commits](https://www.conventionalcommits.org) in pre-commit hooks and CI, so your commit messages must follow that format.
+This template repository enforces [Conventional Commits](https://www.conventionalcommits.org) in pre-commit hooks and CI,
+so your commit messages must follow that format.
 You can maintain Conventional Commits manually, but automation tools such as Commitizen or git-cz can help.
-Any tool is fine, but this repository uses [commitizen-tools/commitizen](https://github.com/commitizen-tools/commitizen) for checks, so it is recommended.
+Any tool is fine, but this repository uses [commitizen-tools/commitizen](https://github.com/commitizen-tools/commitizen)
+for checks, so it is recommended.
 
 Install Commitizen:
 
@@ -89,7 +93,8 @@ For more details, see [Commitizen documentation](https://commitizen-tools.github
 
 ## Version Bumping by Labels
 
-This repository is configured to automatically bump the version when a pull request is merged with one of the following labels:
+This repository is configured to automatically bump the version when a pull request is merged with one of the
+following labels:
 
 - `update::major`
 - `update::minor`
