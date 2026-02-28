@@ -61,7 +61,7 @@ jobs:
               - '**/*.toml'
               - .taplo.toml
             python:
-              - '**/**.py'
+              - '**/*.py'
               - 'pyproject.toml'
               - '.python-version'
               - 'uv.lock'
