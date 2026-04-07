@@ -104,4 +104,4 @@ Simply add one of these labels to your pull request before merging.
 A new pull request for the version bump will be automatically created.
 
 The version number is managed via the `.bumpversion.toml` file in the repository root.
-For more details, see [conjikidow/bump-version](https://github.com/conjikidow/bump-version).
+For more details, see [conjikidow/bump-version-action](https://github.com/conjikidow/bump-version-action).
