@@ -66,7 +66,7 @@ repos:
       - id: no-commit-to-branch
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: fa60a193803535a9e2accdb3ca4b1b584b1150cb  # frozen: 0.11.15
+    rev: f19149a31a5aad375f89df042b796688201d6840  # frozen: 0.11.16
     hooks:
       - id: uv-lock
 
