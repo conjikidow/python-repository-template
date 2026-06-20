@@ -180,6 +180,8 @@
   },
   lockFileMaintenance: {
     automerge: true,
+    // uv's exclude-newer already enforces the cooldown here, so drop the redundant stability gate.
+    minimumReleaseAge: '0 days',
   },
   labels: [
     'automated',
