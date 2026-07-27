@@ -49,9 +49,9 @@ lint = [
 [package.metadata.requires-dev]
 dev = [
     { name = "prek", specifier = ">=0.3.0" },
-    { name = "ruff", specifier = ">=0.16" },
+    { name = "ruff", specifier = "==0.16.0" },
 ]
-lint = [{ name = "ruff", specifier = ">=0.16" }]
+lint = [{ name = "ruff", specifier = "==0.16.0" }]
 
 [[package]]
 name = "ruff"
