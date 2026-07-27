@@ -119,6 +119,18 @@
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'j178/prek',
     },
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^pyproject\\.toml$/',
+      ],
+      matchStrings: [
+        'required-version = "==(?<currentValue>[^"\\s]+)"',
+      ],
+      autoReplaceStringTemplate: 'required-version = "=={{{newValue}}}"',
+      datasourceTemplate: 'pypi',
+      depNameTemplate: 'ruff',
+    },
   ],
   packageRules: [
     {
@@ -141,6 +153,13 @@
         'DavidAnson/markdownlint-cli2',
       ],
       groupName: 'markdownlint-cli2',
+    },
+    {
+      matchDepNames: [
+        'astral-sh/ruff-pre-commit',
+        'ruff',
+      ],
+      groupName: 'ruff',
     },
     {
       matchDepNames: [
