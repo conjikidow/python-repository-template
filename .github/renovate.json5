@@ -226,6 +226,15 @@
       ],
       automerge: true,
     },
+    {
+      matchDepNames: [
+        'ruff',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      automerge: true,
+    },
   ],
   'git-submodules': {
     enabled: true,
