@@ -4,6 +4,7 @@
     'config:best-practices',
   ],
   minimumReleaseAge: '3 days',
+  invalidOptionForLintTest: true,
   customManagers: [
     {
       customType: 'regex',

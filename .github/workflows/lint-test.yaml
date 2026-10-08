@@ -1,0 +1,11 @@
+name: Lint test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo $FOO ${{ inputs.undefined-input }}
