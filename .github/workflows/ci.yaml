@@ -74,15 +74,15 @@ jobs:
               - '**/*.toml'
               - '.tombi.toml'
             yaml:
-              - '**/*.yml'
               - '**/*.yaml'
+              - '**/*.yml'
               - '.yamllint.yaml'
             python:
               - '**/*.py'
               - '**/*.ipynb'
               - '**/*.md'
-              - 'pyproject.toml'
               - '.python-version'
+              - 'pyproject.toml'
               - 'uv.lock'
 
   lint-github-actions:
