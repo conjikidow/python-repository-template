@@ -238,7 +238,6 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
-      pull-requests: write
 
     steps:
       - name: Check out the repository
@@ -253,6 +252,29 @@ jobs:
 
       - name: Lint TOML
         run: tombi lint --error-on-warnings --diagnostics-format github
+
+  format-toml:
+    name: Format TOML
+    needs: determine-changes
+    if: >-
+      needs.determine-changes.outputs.toml == 'true'
+      || needs.determine-changes.outputs.github-actions-ci == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Tombi
+        uses: tombi-toml/setup-tombi@f6c2e810bb1ae4728d9269b7e354a3fd711a88ed # v1.7.2
+        with:
+          version: '1.7.2'
 
       - name: Format TOML
         run: tombi format
@@ -326,7 +348,6 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
-      pull-requests: write
 
     steps:
       - name: Check out the repository
@@ -349,6 +370,37 @@ jobs:
 
       - name: Lint Python
         run: uv run ruff check . --output-format=github
+
+  format-python:
+    name: Format Python
+    needs: determine-changes
+    if: >-
+      needs.determine-changes.outputs.python == 'true'
+      || needs.determine-changes.outputs.github-actions-ci == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.12.23'
+
+      - name: Install Ruff
+        run: uv sync --only-group lint
+
+      - name: Show tool versions
+        run: |
+          uv --version
+          uv run ruff --version
 
       - name: Format Python
         run: uv run ruff format .
