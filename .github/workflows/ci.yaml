@@ -80,7 +80,6 @@ jobs:
             python:
               - '**/*.py'
               - '**/*.ipynb'
-              - '**/*.md'
               - '.python-version'
               - 'pyproject.toml'
               - 'uv.lock'
@@ -379,6 +378,7 @@ jobs:
     needs: determine-changes
     if: >-
       needs.determine-changes.outputs.python == 'true'
+      || needs.determine-changes.outputs.md == 'true'
       || needs.determine-changes.outputs.github-actions-ci == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
