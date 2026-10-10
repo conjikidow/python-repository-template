@@ -370,11 +370,6 @@ jobs:
       - name: Install Ruff
         run: uv sync --only-group=lint
 
-      - name: Show tool versions
-        run: |
-          uv --version
-          uv run ruff --version
-
       - name: Lint Python
         run: uv run ruff check --output-format=github .
 
@@ -404,11 +399,6 @@ jobs:
 
       - name: Install Ruff
         run: uv sync --only-group=lint
-
-      - name: Show tool versions
-        run: |
-          uv --version
-          uv run ruff --version
 
       - name: Format Python
         run: uv run ruff format .
