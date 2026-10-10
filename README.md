@@ -45,18 +45,16 @@ Replace `project-name` with your project name in the following files:
 
 This template recommends using [`prek`](https://prek.j178.dev) (a faster, drop-in alternative to [`pre-commit`](https://pre-commit.com)).
 
-Install the hooks by running:
+Install `prek` by following its [installation guide](https://prek.j178.dev/installation/), then install the hooks:
 
 ```console
-uv run --frozen prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
-If you prefer `pre-commit`, update your dev dependency and install hooks:
+If you prefer `pre-commit`, [install it](https://pre-commit.com/#install) and run:
 
 ```console
-uv remove prek --dev
-uv add pre-commit --dev
-uv run --frozen pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
 ## Commit Message Linting with Commitizen
