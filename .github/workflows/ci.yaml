@@ -209,31 +209,6 @@ jobs:
           done < <(git ls-files -z '*.json5')
           exit "${exit_code}"
 
-  lint-toml:
-    name: Lint TOML
-    needs: determine-changes
-    if: >-
-      needs.determine-changes.outputs.toml == 'true'
-      || needs.determine-changes.outputs.github-actions-ci == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Install Tombi
-        uses: tombi-toml/setup-tombi@d8f3250344c4e9107b91c02bc11efcf72baf5793 # v1.7.3
-        with:
-          version: '1.7.3'
-
-      - name: Lint TOML
-        run: tombi lint --error-on-warnings --diagnostics-format=github
-
   format-toml:
     name: Format TOML
     needs: determine-changes
@@ -274,6 +249,31 @@ jobs:
             echo "::error file=${file},title=tombi-format::File is not formatted. Run tombi format."
           done
           git diff --exit-code
+
+  lint-toml:
+    name: Lint TOML
+    needs: determine-changes
+    if: >-
+      needs.determine-changes.outputs.toml == 'true'
+      || needs.determine-changes.outputs.github-actions-ci == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Tombi
+        uses: tombi-toml/setup-tombi@d8f3250344c4e9107b91c02bc11efcf72baf5793 # v1.7.3
+        with:
+          version: '1.7.3'
+
+      - name: Lint TOML
+        run: tombi lint --error-on-warnings --diagnostics-format=github
 
   lint-yaml:
     name: Lint YAML
@@ -326,34 +326,6 @@ jobs:
           version: '0.2.78'
           report-type: annotations
 
-  lint-python:
-    name: Lint Python
-    needs: determine-changes
-    if: >-
-      needs.determine-changes.outputs.python == 'true'
-      || needs.determine-changes.outputs.github-actions-ci == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
-        with:
-          version: '0.12.23'
-
-      - name: Install Ruff
-        run: uv sync --only-group=lint
-
-      - name: Lint Python
-        run: uv run ruff check --output-format=github .
-
   format-python:
     name: Format Python
     needs: determine-changes
@@ -398,6 +370,34 @@ jobs:
             echo "::error file=${file},title=ruff-format::File is not formatted. Run ruff format."
           done
           git diff --exit-code
+
+  lint-python:
+    name: Lint Python
+    needs: determine-changes
+    if: >-
+      needs.determine-changes.outputs.python == 'true'
+      || needs.determine-changes.outputs.github-actions-ci == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.12.23'
+
+      - name: Install Ruff
+        run: uv sync --only-group=lint
+
+      - name: Lint Python
+        run: uv run ruff check --output-format=github .
 
   check-spelling:
     name: Check spelling
