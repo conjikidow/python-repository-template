@@ -48,15 +48,19 @@ This template recommends using [`prek`](https://prek.j178.dev) (a faster, drop-i
 Install the hooks by running:
 
 ```console
-uv run --frozen prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+uvx prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
-If you prefer `pre-commit`, update your dev dependency and install hooks:
+If `prek` is already installed:
 
 ```console
-uv remove prek --dev
-uv add pre-commit --dev
-uv run --frozen pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+prek install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
+```
+
+If you prefer `pre-commit`:
+
+```console
+uvx pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
 ## Commit Message Linting with Commitizen
