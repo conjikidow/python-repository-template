@@ -14,7 +14,6 @@ lint = ["ruff==0.16.10"]
 
 [tool.ruff]
 required-version = "==0.16.10"
-target-version = "py313"
 line-length = 120
 
 [tool.uv]
