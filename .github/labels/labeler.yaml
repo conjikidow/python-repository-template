@@ -11,10 +11,6 @@
   - changed-files:
       - any-glob-to-any-file: ["**/*.md"]
 
-"dependencies":
-  - changed-files:
-      - any-glob-to-any-file: ["uv.lock"]
-
 "versioning":
   - changed-files:
       - any-glob-to-any-file: [".bumpversion.toml"]
