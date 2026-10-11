@@ -154,6 +154,13 @@
     },
     {
       matchDepNames: [
+        'astral-sh/uv',
+        'astral-sh/uv-pre-commit',
+      ],
+      groupName: 'uv',
+    },
+    {
+      matchDepNames: [
         'adrienverge/yamllint',
       ],
       groupName: 'yamllint',
