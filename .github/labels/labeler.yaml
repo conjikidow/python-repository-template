@@ -9,12 +9,12 @@
 
 "documentation":
   - changed-files:
-      - any-glob-to-any-file: "**/*.md"
+      - any-glob-to-any-file: ["**/*.md"]
 
 "dependencies":
   - changed-files:
-      - any-glob-to-any-file: "uv.lock"
+      - any-glob-to-any-file: ["uv.lock"]
 
 "versioning":
   - changed-files:
-      - any-glob-to-any-file: ".bumpversion.toml"
+      - any-glob-to-any-file: [".bumpversion.toml"]
