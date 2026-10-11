@@ -354,7 +354,7 @@ jobs:
         run: uv sync --only-group=lint
 
       - name: Format Python
-        run: uv run ruff format .
+        run: uv run --no-sync ruff format .
 
       - name: Suggest Python formatting
         if: github.event_name == 'pull_request'
@@ -397,7 +397,7 @@ jobs:
         run: uv sync --only-group=lint
 
       - name: Lint Python
-        run: uv run ruff check --output-format=github .
+        run: uv run --no-sync ruff check --output-format=github .
 
   check-spelling:
     name: Check spelling
