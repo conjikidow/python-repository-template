@@ -8,15 +8,15 @@ repos:
     hooks:
       - id: fix-byte-order-marker
       - id: mixed-line-ending
-        args: ["--fix=lf"]
+        args: [--fix=lf]
       - id: trailing-whitespace
-        args: ["--markdown-linebreak-ext=md"]
+        args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
       - id: check-json
         fail_fast: true
       - id: pretty-format-json
         exclude_types: [jupyter]
-        args: ["--autofix", "--no-sort-keys"]
+        args: [--autofix, --no-sort-keys]
       - id: requirements-txt-fixer
 
   - repo: https://github.com/crate-ci/typos
@@ -33,13 +33,13 @@ repos:
     rev: 83cecb6b523a053d7d3dfdc4798d705b505a88f9  # frozen: v0.2.78
     hooks:
       - id: rumdl-check
-        args: ["--fix"]
+        args: [--fix]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: f12be1ebaa5351c1fc76472de98db2c3446c8253  # frozen: v0.16.10
     hooks:
       - id: ruff-check
-        args: ["--fix"]
+        args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/astral-sh/uv-pre-commit
@@ -67,20 +67,20 @@ repos:
       - id: destroyed-symlinks
       - id: detect-private-key
       - id: name-tests-test
-        args: ["--pytest-test-first"]
+        args: [--pytest-test-first]
       - id: no-commit-to-branch
 
   - repo: https://github.com/tombi-toml/tombi-pre-commit
     rev: 9f0b6fb827f5c25aa1c84b15fff7bf13e555688b  # frozen: v1.7.3
     hooks:
       - id: tombi-lint
-        args: ["--error-on-warnings"]
+        args: [--error-on-warnings]
 
   - repo: https://github.com/adrienverge/yamllint
     rev: cba56bcde1fdd01c1deb3f945e69764c291a6530  # frozen: v1.38.0
     hooks:
       - id: yamllint
-        args: ["--format=standard", "--strict"]
+        args: [--format=standard, --strict]
 
   - repo: https://github.com/commitizen-tools/commitizen
     rev: 57217c394fff5064bedd48421fe4b6f5f73aad47  # frozen: v4.19.2
