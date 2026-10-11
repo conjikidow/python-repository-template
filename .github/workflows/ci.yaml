@@ -20,9 +20,6 @@ defaults:
 
 permissions: {}
 
-env:
-  UV_FROZEN: 1
-
 jobs:
   determine-changes:
     name: Determine changes
@@ -351,7 +348,7 @@ jobs:
           version: '0.12.23'
 
       - name: Install Ruff
-        run: uv sync --only-group=lint
+        run: uv sync --only-group=lint --locked
 
       - name: Format Python
         run: uv run --no-sync ruff format .
@@ -394,7 +391,7 @@ jobs:
           version: '0.12.23'
 
       - name: Install Ruff
-        run: uv sync --only-group=lint
+        run: uv sync --only-group=lint --locked
 
       - name: Lint Python
         run: uv run --no-sync ruff check --output-format=github .
