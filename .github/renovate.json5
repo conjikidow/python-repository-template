@@ -149,6 +149,38 @@
       allowedVersions: '/^v?\\d+\\.\\d+\\.\\d+$/',
     },
     {
+      matchFileNames: [
+        '.github/workflows/**',
+        '.pre-commit-config.yaml',
+        '.python-version',
+      ],
+      labels: [
+        'automated',
+        'dev-dependencies',
+      ],
+    },
+    {
+      matchDepTypes: [
+        'dependency-groups',
+      ],
+      labels: [
+        'automated',
+        'dev-dependencies',
+      ],
+    },
+    {
+      matchManagers: [
+        'custom.jsonata',
+      ],
+      matchFileNames: [
+        'pyproject.toml',
+      ],
+      labels: [
+        'automated',
+        'dev-dependencies',
+      ],
+    },
+    {
       matchManagers: [
         'pre-commit',
       ],
