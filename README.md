@@ -41,6 +41,14 @@ Replace `project-name` with your project name in the following files:
   regex = true
   ```
 
+## Required Status Check
+
+The CI workflow ends with a `Check CI results` job, which fails if any other job in the workflow failed or was cancelled.
+Require this single check in a branch ruleset for the default branch instead of listing each CI job.
+
+When you add a job to `.github/workflows/ci.yaml`, also add it to the `needs` of `check-ci-results`.
+Otherwise, the new job does not block merging when it fails.
+
 ## Pre-commit Hooks Setup
 
 This template recommends using [`prek`](https://prek.j178.dev) (a faster, drop-in alternative to [`pre-commit`](https://pre-commit.com)).
