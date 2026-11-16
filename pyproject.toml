@@ -10,10 +10,10 @@ dependencies = []
 dev = [
   { include-group = "lint" },
 ]
-lint = ["ruff==0.17.4"]
+lint = ["ruff==0.17.5"]
 
 [tool.ruff]
-required-version = "==0.17.4"
+required-version = "==0.17.5"
 line-length = 120
 
 [tool.uv]
